@@ -1,14 +1,17 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Expense Monitor
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-list>
+        <button ion-item (click)="showDetails(ex)" *ngFor="let ex of expenses">
+         <h2>{{ex.amount | currency:'ILS'}}</h2>
+         <p>{{ex.date | date}}  <em><strong>{{ex.description}}</strong></em></p>
+         <ion-note item-right>{{ex.category}}</ion-note>
+        </button>
+    </ion-list>
 </ion-content>
